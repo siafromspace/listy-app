@@ -17,7 +17,7 @@ function addNewTask(e) {
 
         li.innerHTML = `<span>${newTask}</span>
         <button class="delete" onclick="delListItem(this)">&#x2715;</button>
-        <button class="done">&check;</button>`
+        <button class="done" onclick="checkList(this)">&check;</button>`
 
         document.getElementById('input-task').value = ""
 
@@ -33,30 +33,19 @@ function enterNewTask(e) {
     }
 }
 
-const dlt = document.getElementsByClassName('delete')
-for (var i = 0; i < dlt.length; i++) {
-    dlt[i].addEventListener("click", delListItem)
-}
-
 function delListItem(e) {
-    e.parentNode.remove()
+    if (confirm("Are you sure?")) {
+        e.parentNode.remove()
+    }
 }
 
+function checkList(e) {
 
-
-// function delListItem(e) {
-//     if (e.target.className == "delete") {
-//         if (confirm("Are you sure?")) {
-//             var li = e.target.parentElement
-//             taskList.removeChild(li)
-//         }
-//     }
-// }
-
-// const check = document.querySelectorAll('.done')
-// for (var i = 0; i < check.length; i++) {
-//     dlt[i].addEventListener("click", checkList)
-// }
-// function checkList() {
-//     this.parentNode.style.backgroundColor = "green"
-// }
+    var text = e.previousElementSibling
+    text.previousElementSibling.classList.toggle('check')
+    if (text.previousElementSibling.classList.contains('check')) {
+        e.parentNode.style.backgroundColor = "lightGreen"
+    } else {
+        e.parentNode.style.backgroundColor = "white"
+    }
+}

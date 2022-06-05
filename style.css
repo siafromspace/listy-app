@@ -104,17 +104,17 @@ header .search input[type="text"] {
     }
 }
 .tasks {
-    background-color: #4D4C7D;
+    /* background-color: #4D4C7D; */
     padding: 1rem;
     margin-top: 2rem;
     border-top-left-radius: 40px;
     border-bottom-right-radius: 40px;
 }
-.tasks.remove {
+/* .tasks.remove {
     display: none;
-}
+} */
 .tasks .task-list {
-    background-color: #4D4C7D;
+    /* background-color: #4D4C7D; */
     display: flex;
     flex-direction: column;
 }
@@ -144,6 +144,13 @@ header .search input[type="text"] {
 }
 .tasks .task-list li .done {
     background-color: greenyellow;
+}
+.check {
+    text-decoration: line-through;
+    color: grey;
+}
+.color {
+    background-color: lightgreen;
 }
 .tasks .task-list li .delete {
     background-color: red;
