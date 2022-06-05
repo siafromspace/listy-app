@@ -16,7 +16,7 @@ function addNewTask(e) {
         li.className = 'task-list-item'
 
         li.innerHTML = `<span>${newTask}</span>
-        <button class="delete">&#x2715;</button>
+        <button class="delete" onclick="delListItem(this)">&#x2715;</button>
         <button class="done">&check;</button>`
 
         document.getElementById('input-task').value = ""
@@ -38,9 +38,8 @@ for (var i = 0; i < dlt.length; i++) {
     dlt[i].addEventListener("click", delListItem)
 }
 
-function delListItem() {
-    console.log("here")
-    // this.parentNode.remove()
+function delListItem(e) {
+    e.parentNode.remove()
 }
 
 
