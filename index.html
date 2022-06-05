@@ -17,7 +17,7 @@
             <p>keep track of your day!</p>
         </div>
         <form class="search">
-            <input type="text" placeholder="search tasks">
+            <input type="text" placeholder="search tasks" onkeyup="filterItems()" id="filterInput">
         </form>
     </header>
     <main>
@@ -26,7 +26,7 @@
                 <h2>Add new task:</h2>
                 <form>
                     <input id="input-task" type="text" value="">
-                    <input id="add-task" type="button" value="Add">
+                    <input id="add-task" type="submit" value="Add">
                 </form>
             </div>
             <div class="tasks remove">

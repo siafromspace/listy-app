@@ -49,3 +49,20 @@ function checkList(e) {
         e.parentNode.style.backgroundColor = "white"
     }
 }
+
+function filterItems() {
+    var input = document.getElementById('filterInput')
+    var filter = input.value.toUpperCase()
+    var li = taskList.getElementsByTagName('li')
+
+    for (var i = 0; i < li.length; i++) {
+        var span = li[i].getElementsByTagName('span')[0]
+        var textValue = span.textContent || span.innerText
+
+        if (textValue.toUpperCase().indexOf(filter) > -1) {
+            li[i].style.display = ""
+        } else {
+            li[i].style.display = "none"
+        }
+    }
+}

@@ -83,7 +83,7 @@ header .search input[type="text"] {
     outline: none;
     border: none;
 }
-.new-task input[type="button"] {
+.new-task input[type="submit"] {
     width: 20%;
     height: 2rem;
     font-size: 1rem;
@@ -91,7 +91,7 @@ header .search input[type="text"] {
     border: none;
     cursor: pointer;
 }
-.new-task input[type="button"]:hover {
+.new-task input[type="submit"]:hover {
     background-color: #4D4C7D;
     color: white;
 }
@@ -99,7 +99,7 @@ header .search input[type="text"] {
     .new-task input[type="text"] {
         width: 50%;
     }
-    .new-task input[type="button"] {
+    .new-task input[type="submit"] {
         width: 10%;
     }
 }
