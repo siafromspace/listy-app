@@ -1,3 +1,5 @@
+document.addEventListener('DOMContentLoaded', getTodos)
+
 const taskList = document.querySelector('.task-list')
 const addTask = document.getElementById('add-task')
 
@@ -19,6 +21,8 @@ function addNewTask(e) {
         <button class="delete" onclick="delListItem(this)">&#x2715;</button>
         <button class="done" onclick="checkList(this)">&check;</button>`
 
+        saveLocalTodos(newTask)
+
         document.getElementById('input-task').value = ""
 
         taskList.appendChild(li)
@@ -36,6 +40,7 @@ function enterNewTask(e) {
 function delListItem(e) {
     if (confirm("Are you sure?")) {
         e.parentNode.remove()
+        removeLocalTodos(e)
     }
 }
 
@@ -65,4 +70,47 @@ function filterItems() {
             li[i].style.display = "none"
         }
     }
+}
+
+function saveLocalTodos(todo) {
+    //check if theres todos 
+    let todos
+    if (localStorage.getItem('todos') === null) {
+        todos = []
+    } else {
+        todos = JSON.parse(localStorage.getItem('todos'))
+    }
+    todos.push(todo)
+    localStorage.setItem('todos', JSON.stringify(todos))
+}
+
+function getTodos() {
+    let todos
+    if (localStorage.getItem('todos') === null) {
+        todos = []
+    } else {
+        todos = JSON.parse(localStorage.getItem('todos'))
+    }
+    todos.forEach(todo => {
+        var li = document.createElement('li')
+        li.className = 'task-list-item'
+
+        li.innerHTML = `<span>${todo}</span>
+        <button class="delete" onclick="delListItem(this)">&#x2715;</button>
+        <button class="done" onclick="checkList(this)">&check;</button>`
+
+        taskList.appendChild(li)
+    })
+}
+
+function removeLocalTodos(todo) {
+    let todos
+    if (localStorage.getItem('todos') === null) {
+        todos = []
+    } else {
+        todos = JSON.parse(localStorage.getItem('todos'))
+    }
+    const todoIndex = todo.previousElementSibling.innerText
+    todos.splice(todos.indexOf(todoIndex), 1)
+    localStorage.setItem('todos', JSON.stringify(todos))
 }

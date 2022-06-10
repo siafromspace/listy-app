@@ -117,6 +117,7 @@ header .search input[type="text"] {
     /* background-color: #4D4C7D; */
     display: flex;
     flex-direction: column;
+    
 }
 .tasks .task-list li {
     background-color: white;
@@ -127,6 +128,7 @@ header .search input[type="text"] {
     display: flex;
     justify-content: flex-end;
     position: relative;
+    transition: all 1s ease;
 }
 .tasks .task-list li span {
     position: absolute;
@@ -147,7 +149,7 @@ header .search input[type="text"] {
 }
 .check {
     text-decoration: line-through;
-    color: grey;
+    opacity: 0.5;
 }
 .color {
     background-color: lightgreen;
